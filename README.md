@@ -1,0 +1,2 @@
+# RuntimeEventDebug_RMMV_RMMZ
+运行时事件调试插件，适用于RMMV和RMMZ
