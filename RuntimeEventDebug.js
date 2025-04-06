@@ -562,25 +562,29 @@ Window_RuntimeEventDebugMain.prototype.update = function () {
 };
 
 Window_RuntimeEventDebugMain.prototype.mode = function (index) {
-    return this.isSwitchMode(index) ? "switch" : (this.isVariableMode(index) ? "variable" : "event");
+    return this.isEventMode(index) ? "event" : (this.isSwitchMode(index) ? "switch" : "variable");
 };
 
 Window_RuntimeEventDebugMain.prototype.topId = function (index) {
-    if (this.isSwitchMode(index)) {
-        return index * 10 + 1;
-    } else if (this.isVariableMode(index)) {
-        return (index - this._maxSwitches) * 10 + 1;
+    if (this.isEventMode(index)) {
+        return index
+    } else if (this.isSwitchMode(index)) {
+        return (index - this._maxEvents) * 10 + 1;
     } else {
-        return index - this._maxSwitches - this._maxVariables;
+        return (index - this._maxEvents - this._maxSwitches) * 10 + 1;
     }
 };
 
+Window_RuntimeEventDebugMain.prototype.isEventMode = function (index) {
+    return index < this._maxEvents;
+};
+
 Window_RuntimeEventDebugMain.prototype.isSwitchMode = function (index) {
-    return index < this._maxSwitches;
+    return index < this._maxEvents + this._maxSwitches;
 };
 
 Window_RuntimeEventDebugMain.prototype.isVariableMode = function (index) {
-    return index < this._maxSwitches + this._maxVariables;
+    return index >= this._maxEvents + this._maxSwitches;
 };
 
 Window_RuntimeEventDebugMain.prototype.drawItem = function (index) {
@@ -589,7 +593,7 @@ Window_RuntimeEventDebugMain.prototype.drawItem = function (index) {
 };
 
 Window_RuntimeEventDebugMain.prototype.getItem = function (index) {
-    const c = this.isSwitchMode(index) ? "开关" : (this.isVariableMode(index) ? "变量" : "事件");
+    const c = (this.isEventMode(index) ? "事件" : (this.isSwitchMode(index) ? "开关" : "变量"));
 
     let text = "";
     const start = this.topId(index);
@@ -598,7 +602,7 @@ Window_RuntimeEventDebugMain.prototype.getItem = function (index) {
             text = c + " [" + start.padZero(3) + "] " + this.GetEventName(start);
         }
         else if (start === 0) {
-            text = "开始位置"
+            text = "空事件"
         }
         else {
             text = "空事件"
@@ -1552,7 +1556,7 @@ Scene_RuntimeEventDebug.prototype.refreshTitleWindow = function () {
 Scene_RuntimeEventDebug.prototype.titleText = function () {
     const mainIndex = this._mainWindow.index()
     let Hint = this._mainWindow.getItem(mainIndex)
-    if (!this._mainWindow.isSwitchMode(mainIndex) && !this._mainWindow.isVariableMode(mainIndex)) {
+    if (this._mainWindow.isEventMode(mainIndex)) {
         const rangeIndex = this._rangeWindow.index()
         if (rangeIndex >= 0) {
             Hint += "  " + this._rangeWindow.getItem(rangeIndex)
