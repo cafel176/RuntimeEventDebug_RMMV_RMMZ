@@ -60,6 +60,8 @@
  * 
  * ★ 注意：本插件完全用于开发调试，开发完成后进入部署阶段时，请将本插件
  *    关闭避免影响到游戏流程
+ * ★ 注意：MV版本下对鼠标的支持并不完善，因此请不要用鼠标点击RM的UI，有
+ *    概率出现文本框自动跳过的问题。完全使用键盘进行调试和读档则可以避免
  * 
  * @param 断点方式
  * @type select
@@ -189,6 +191,15 @@ DataManager.loadDataFile = function (name, src) {
     }
 };
 
+// 记录是否在进入地图前进行读档操作
+var DoLoadGame = false
+
+var DataManager_loadGame = DataManager.loadGame;
+DataManager.loadGame = function (savefileId) {
+    DoLoadGame = true
+    return DataManager_loadGame.call(this, savefileId);
+};
+
 var DataManager_onLoad = DataManager.onLoad;
 DataManager.onLoad = function (object) {
     DataManager_onLoad.call(this, object);
@@ -235,6 +246,34 @@ DataManager.onLoad = function (object) {
 
         loadDataMap = false
         DataMapSrc = ""
+
+        // 读档后需要更新$gameMap以处理存档时正在执行事件的情况
+        if (DoLoadGame) {
+            if ($gameMap._interpreter._list) {
+                // 找到存档时正在触发的事件
+                const eventId = $gameMap._interpreter._eventId
+                // 找到存档时正在执行的事件的EventItemIndex
+                const checkEventItemIndex = $gameMap._interpreter._list[$gameMap._interpreter._index].EventItemIndex;
+                // 对该事件的每一页遍历
+                let find = false
+                for (let i = 0; i < $dataMap.events[eventId].pages.length; ++i) {
+                    for (let j = 0; j < $dataMap.events[eventId].pages[i].list.length; ++j) {
+                        // 找到存档时正在执行的那一页
+                        if (checkEventItemIndex === $dataMap.events[eventId].pages[i].list[j].EventItemIndex) {
+                            // 更新$gameMap
+                            $gameMap._interpreter._list = $dataMap.events[eventId].pages[i].list
+                            $gameMap._interpreter._index = j
+
+                            find = true
+                            break
+                        }
+                    }
+                    if (find)
+                        break
+                }
+            }
+            DoLoadGame = false
+        }
     }
     if (loadDataMapOrigin) {
         // 记录data来源文件名
@@ -1578,6 +1617,7 @@ var ChangeParameter = function (EventInfo, paramIndex, inParam, eventId, pageId,
         changedAnyThing = true
         return true
     }
+    alert('失败: 修改未正常同步！')
     return false
 }
 
@@ -1599,6 +1639,7 @@ var ChangeParameters = function (EventInfo, Newparams, eventId, pageId, itemId) 
         changedAnyThing = true
         return true
     }
+    alert('失败: 修改未正常同步！')
     return false
 }
 
@@ -1627,6 +1668,7 @@ var ChangeSubParameter = function (EventInfo, object, paramIndex, inParam, event
         changedAnyThing = true
         return true
     }
+    alert('失败: 修改未正常同步！')
     return false
 }
 
