@@ -175,8 +175,15 @@ DataManager.onLoad = function (object) {
                                             // 注释对得上
                                             if (checkArr[1] === itrArr[1]) {
                                                 // 更新$gameMap
-                                                $gameMap._interpreter._list = $dataMap.events[eventId].pages[i].list
-                                                $gameMap._interpreter._index = j + 1
+                                                $gameMap.setupEvents()
+
+                                                if ($gameMap._interpreter._events) {
+                                                    $gameMap._interpreter._events = $dataMap.events
+                                                }
+                                                if ($gameMap._interpreter._list) {
+                                                    $gameMap._interpreter._list = $dataMap.events[eventId].pages[i].list
+                                                    $gameMap._interpreter._index = j + 1
+                                                }
 
                                                 find = true
                                                 break
