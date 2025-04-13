@@ -151,7 +151,7 @@ DataManager.onLoad = function (object) {
                     // 找到存档时正在执行的事件项
                     const checkEvent = $gameMap._interpreter._list[$gameMap._interpreter._index - 1]
                     // 当前事件是否是注释断点
-                    if (checkEvent.code === 352) {
+                    if (checkEvent.code === 352 && checkEvent.parameters.length > 0) {
                         let checkStr = checkEvent.parameters[0]
                         // 检查当前注释是否是指定标记开头
                         let checkArr = this.debug_processToken(checkStr)
@@ -166,7 +166,7 @@ DataManager.onLoad = function (object) {
                                         continue;
 
                                     // 当前事件是否是注释
-                                    if (itrEvent.code === 352) {
+                                    if (itrEvent.code === 352 && itrEvent.parameters.length > 0) {
                                         let itrStr = itrEvent.parameters[0]
                                         // 检查当前注释是否是指定标记开头
                                         let itrArr = this.debug_processToken(itrStr)
