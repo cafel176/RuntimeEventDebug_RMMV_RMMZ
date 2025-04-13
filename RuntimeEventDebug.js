@@ -141,6 +141,11 @@ DataManager.onLoad = function (object) {
             }
         }
 
+        // 不触发事件的时候也要更新
+        if ($gameMap) {
+            $gameMap.setupEvents()
+        }
+
         // 读档后需要更新$gameMap以处理存档时正在执行事件的情况
         if ($gameMap._interpreter._list) {
             // 找到存档时正在触发的事件ID
@@ -174,12 +179,6 @@ DataManager.onLoad = function (object) {
                                         if (itrArr[0]) {
                                             // 注释对得上
                                             if (checkArr[1] === itrArr[1]) {
-                                                // 更新$gameMap
-                                                $gameMap.setupEvents()
-
-                                                if ($gameMap._interpreter._events) {
-                                                    $gameMap._interpreter._events = $dataMap.events
-                                                }
                                                 if ($gameMap._interpreter._list) {
                                                     $gameMap._interpreter._list = $dataMap.events[eventId].pages[i].list
                                                     $gameMap._interpreter._index = j + 1
