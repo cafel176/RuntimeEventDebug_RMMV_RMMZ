@@ -18,14 +18,14 @@ QQ群：***792888538***   欢迎反馈遇到的问题和希望支持的功能
 1. 支持通过注释在事件列表中添加断点，运行时执行到断点注释会触发存档面板以供记录
    * 使用方式：添加注释并写入  ***断点***  即可
 
-![断点](https://github.com/cafel176/RuntimeEventDebug_RMMV_RMMZ/blob/main/pic1.png?raw=true '断点')
+![断点](https://github.com/cafel176/RuntimeEventDebug_RMMV_RMMZ/blob/v1/pic1.png?raw=true '断点')
 
 <br/>
 
 2. 支持指定一张地图，运行时该地图内的所有事件前都会触发存档面板以供记录
    * 使用方式：在地图备注中写入   ***断点调试***   即可
 
-![断点调试](https://github.com/cafel176/RuntimeEventDebug_RMMV_RMMZ/blob/main/pic2.png?raw=true '断点调试')
+![断点调试](https://github.com/cafel176/RuntimeEventDebug_RMMV_RMMZ/blob/v1/pic2.png?raw=true '断点调试')
 
 <br/>
 
@@ -43,9 +43,9 @@ QQ群：***792888538***   欢迎反馈遇到的问题和希望支持的功能
    
    * 旧的地图数据备份位置为 RuntimeEventDebug/Copy，文件名中包含了 月 日 时 分 的时间信息以供识别，如：Map001_4_5_12_31.json
 
-![Debug面板](https://github.com/cafel176/RuntimeEventDebug_RMMV_RMMZ/blob/main/pic3.png?raw=true 'Debug面板')
-![Debug面板](https://github.com/cafel176/RuntimeEventDebug_RMMV_RMMZ/blob/main/pic4.png?raw=true 'Debug面板')
-![Debug面板](https://github.com/cafel176/RuntimeEventDebug_RMMV_RMMZ/blob/main/pic5.png?raw=true 'Debug面板')   
+![Debug面板](https://github.com/cafel176/RuntimeEventDebug_RMMV_RMMZ/blob/v1/pic3.png?raw=true 'Debug面板')
+![Debug面板](https://github.com/cafel176/RuntimeEventDebug_RMMV_RMMZ/blob/v1/pic4.png?raw=true 'Debug面板')
+![Debug面板](https://github.com/cafel176/RuntimeEventDebug_RMMV_RMMZ/blob/v1/pic5.png?raw=true 'Debug面板')   
 
 <br/>
 
@@ -68,7 +68,7 @@ QQ群：***792888538***   欢迎反馈遇到的问题和希望支持的功能
 8. RMMV下，编辑器不会自动检测数据修改，需要关闭编辑器重新打开以读取最新数据<br/>
    RMMZ下，编辑器会提示数据被外部修改，此时选择   ***是***   以更新编辑器数据
 
-![重新载入](https://github.com/cafel176/RuntimeEventDebug_RMMV_RMMZ/blob/main/pic6.png?raw=true '重新载入')   
+![重新载入](https://github.com/cafel176/RuntimeEventDebug_RMMV_RMMZ/blob/v1/pic6.png?raw=true '重新载入')   
 
 <br/>
 
