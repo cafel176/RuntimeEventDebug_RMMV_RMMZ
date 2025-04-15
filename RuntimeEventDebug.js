@@ -6,8 +6,8 @@
  * 运行时事件调试插件，适用于RMMV和RMMZ
  * @author cafel
  * @target MZ
- * @url https://github.com/cafel176/RuntimeEventDebug_RMMV_RMMZ
- * @help QQ群：792888538 欢迎反馈遇到的问题和希望支持的功能
+ * @url https://github.com/cafel176/RuntimeEventDebug
+ * @help QQ群：792888538  Project1：https://rpg.blue/thread-497192-1-1.html
  * 视频教程：https://www.bilibili.com/video/BV1YURqYMETS/?spm_id_from=333.337.search-card.all.click&vd_source=1f5e08d6a2e054c354714c7090aed591
  * 
  * ★ 本插件提供如下支持：
