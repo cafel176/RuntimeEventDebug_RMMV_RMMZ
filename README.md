@@ -1,16 +1,22 @@
 # RuntimeEventDebug
 
-运行时事件调试插件***V2*** ，适用于RMMV、RMMZ、RMVA、RMVX、RMXP
+运行时事件调试插件***V2*** ，适用于RMMZ、RMMV、RMVA、RMVX、RMXP
 
 QQ群：***792888538***   欢迎反馈遇到的问题和希望支持的功能
 
 MZ/MV 视频教程(必看)：https://www.bilibili.com/video/BV1YURqYMETS/?spm_id_from=333.337.search-card.all.click&vd_source=1f5e08d6a2e054c354714c7090aed591
+
+<br/>
+
 MZ/MV Project1：https://rpg.blue/thread-497192-1-1.html
 
 <br/>
 
-VA/VA/XP 视频教程(必看)：
-MZ/MV Project1：
+VA/VX/XP 视频教程(必看)：https://www.bilibili.com/video/BV1xbdfYWEQp/?vd_source=1f5e08d6a2e054c354714c7090aed591
+
+<br/>
+
+VA/VX/XP Project1：https://rpg.blue/forum.php?mod=viewthread&tid=497237&fromuid=2681370
 
 <br/>
 
@@ -20,12 +26,12 @@ MZ/MV Project1：
    * 使用方式：添加注释并写入  ***断点#任意字符***  即可，此处的任意字符要保证每个事件内的所有事件页都不重复
    * 例如：事件A内3个事件页，则事件页1用了断点#001，其他断点都不能再用，即当前事件页1和事件页2、3内的所有其他断点都不能再用001。但是另外一个事件B则无此限制，每个事件是彼此独立的
 
-![断点](https://github.com/cafel176/RuntimeEventDebug_RMMV_RMMZ/blob/v2/pic1.png?raw=true '断点')
+![断点](https://github.com/cafel176/RuntimeEventDebug/blob/v2/pic1.png?raw=true '断点')
 
 <br/>
 
-2. MZ/MV 支持运行时在任意时间打开读档界面，快捷键   ***F10***
-VA/VA/XP 支持非编辑器测试环境的运行时任意时间打开读档界面，快捷键 ***F9***
+2. MZ/MV 支持运行时在任意时间打开读档界面，快捷键   ***F10***  <br/>
+VA/VX/XP 支持非编辑器测试环境的运行时任意时间打开读档界面，快捷键 ***F9***
 
 <br/>
 
@@ -38,8 +44,8 @@ VA/VA/XP 支持非编辑器测试环境的运行时任意时间打开读档界�
 
 1. 在事件列表中要检查的位置之前加入注释断点
 
-2. MZ/MV 开始游戏，进入事件测试
-VA/VA/XP 在工程双击exe开始游戏，进入事件测试(因为编辑器在测试时是无法修改的)
+2. MZ/MV 开始游戏，进入事件测试 <br/>
+VA/VX/XP 在工程双击exe开始游戏，进入事件测试(因为编辑器在测试时是无法修改的)
 
 3. 触发断点，保存
 
@@ -56,4 +62,4 @@ VA/VA/XP 在工程双击exe开始游戏，进入事件测试(因为编辑器在�
 <br/>
 
 > [!IMPORTANT] 
-> 注意：本插件完全用于开发调试，开发完成后进入部署阶段时，请将本插件关闭避免影响到游戏流程，VA/VA/XP 则是将$debug_active关闭
+> 注意：本插件完全用于开发调试，开发完成后进入部署阶段时，请将本插件关闭避免影响到游戏流程，VA/VX/XP 则是将$debug_active关闭

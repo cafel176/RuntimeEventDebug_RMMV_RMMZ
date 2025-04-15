@@ -5,10 +5,10 @@
 # 当前版本：V2
 # 运行时事件调试插件，适用于RMVA
 # 作者： cafel
-# github地址：https://github.com/cafel176/RuntimeEventDebug
 # QQ群：792888538 
-# Project1：https://rpg.blue/thread-497192-1-1.html
-# 视频教程：https://www.bilibili.com/video/BV1YURqYMETS/?spm_id_from=333.337.search-card.all.click&vd_source=1f5e08d6a2e054c354714c7090aed591
+# github地址：https://github.com/cafel176/RuntimeEventDebug
+# Project1：https://rpg.blue/forum.php?mod=viewthread&tid=497237&fromuid=2681370
+# 视频教程：https://www.bilibili.com/video/BV1xbdfYWEQp/?vd_source=1f5e08d6a2e054c354714c7090aed591
 #  
 #  ★ 本插件提供如下支持：
 #  
