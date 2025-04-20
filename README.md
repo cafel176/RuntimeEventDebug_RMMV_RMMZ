@@ -6,7 +6,7 @@
 
 <br/>
 
-适用于RMMZ、RMMV、RMVA、RMVX、RMXP
+适用于RMUnite、RMMZ、RMMV、RMVA、RMVX、RMXP
 
 QQ群：***792888538***   欢迎反馈遇到的问题和希望支持的功能
 
@@ -14,7 +14,7 @@ Unite 视频教程(必看)：https://www.bilibili.com/video/BV1u35WzPEEr/?share_
 
 <br/>
 
-Unite Project1：
+Unite Project1：https://rpg.blue/forum.php?mod=viewthread&tid=497267&fromuid=2681370
 
 <br/>
 
@@ -37,7 +37,7 @@ VA/VX/XP Project1：https://rpg.blue/forum.php?mod=viewthread&tid=497237&fromuid
 ## 插件功能：
 
 1. 支持通过注释在事件列表中添加断点，运行时执行到断点注释会触发存档面板以供记录
-   * 使用方式：添加注释并写入  ***断点#任意字符***  即可，Unite版本下，则最好是  ***断点#任意数字***  ，此处的任意字符要保证每个事件内的所有事件页都不重复
+   * 使用方式：添加注释并写入  ***断点#任意字符***  即可；Unite版本下，则最好是  ***断点#任意数字***  ；此处的任意字符要保证每个事件内的所有事件页都不重复
    * 例如：事件A内3个事件页，则事件页1用了断点#001，其他断点都不能再用，即当前事件页1和事件页2、3内的所有其他断点都不能再用001。但是另外一个事件B则无此限制，每个事件是彼此独立的
 
 ![断点](https://github.com/cafel176/RuntimeEventDebug/blob/v2/pic1.png?raw=true '断点')
