@@ -85,7 +85,7 @@ Input.keyMapper[121] = "load";
 // ============================================================================= //
 // 对所有的事件页进行处理，将其中的注释转化为对应的事件
 // ============================================================================= //
-var DataManager_loadDataFile = DataManager.loadDataFile;
+var RuntimeEventDebug_DataManager_loadDataFile = DataManager.loadDataFile;
 DataManager.loadDataFile = function (name, src) {
     if (Utils.RPGMAKER_NAME === 'MV') {
         // MV下需要接管xhr
@@ -102,13 +102,13 @@ DataManager.loadDataFile = function (name, src) {
         xhr.send();
     }
     else if (Utils.RPGMAKER_NAME === 'MZ') {
-        DataManager_loadDataFile.call(this, name, src);
+        RuntimeEventDebug_DataManager_loadDataFile.call(this, name, src);
     }
 };
 
 // 加载的是$dataMap
 var loadDataMap = false
-var DataManager_onXhrLoad = DataManager.onXhrLoad;
+var RuntimeEventDebug_DataManager_onXhrLoad = DataManager.onXhrLoad;
 DataManager.onXhrLoad = function (xhr, name, src, url) {
     // 对$dataMap做标记处理
     if (name == "$dataMap") {
@@ -122,14 +122,14 @@ DataManager.onXhrLoad = function (xhr, name, src, url) {
         }
     }
     else if (Utils.RPGMAKER_NAME === 'MZ') {
-        DataManager_onXhrLoad.call(this, xhr, name, src, url);
+        RuntimeEventDebug_DataManager_onXhrLoad.call(this, xhr, name, src, url);
     }
 };
 
 // 读档时根据文件进行数据更新
-var DataManager_onLoad = DataManager.onLoad;
+var RuntimeEventDebug_DataManager_onLoad = DataManager.onLoad;
 DataManager.onLoad = function (object) {
-    DataManager_onLoad.call(this, object);
+    RuntimeEventDebug_DataManager_onLoad.call(this, object);
 
     if (loadDataMap) {
         // 对用于数据的事件全部进行注释处理
@@ -255,9 +255,9 @@ DataManager.debug_processToken = function (Token) {
 // ============================================================================= //
 // 读档修改
 // ============================================================================= //
-var Scene_Map_update = Scene_Map.prototype.update;
+var RuntimeEventDebug_Scene_Map_update = Scene_Map.prototype.update;
 Scene_Map.prototype.update = function () {
-    Scene_Map_update.call(this);
+    RuntimeEventDebug_Scene_Map_update.call(this);
     if (this.isActive()) {
         // 任何时候都可以读档
         if (Input.isTriggered("load")) {
