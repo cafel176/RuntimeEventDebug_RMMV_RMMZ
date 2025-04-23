@@ -201,9 +201,9 @@ class Game_Map
   #--------------------------------------------------------------------------
   # * Setup，用于New Game
   #--------------------------------------------------------------------------
-  alias origin_setup setup
+  alias event_debug_origin_setup setup
   def setup(map_id)
-    origin_setup(map_id)
+    event_debug_origin_setup(map_id)
     # 非active下不执行
     return if !$debug_active
     self.before_start()
@@ -218,9 +218,9 @@ class Scene_Map
   #--------------------------------------------------------------------------
   # * Frame Update
   #--------------------------------------------------------------------------
-  alias origin_update update
+  alias event_debug_origin_update update
   def update()
-    origin_update
+    event_debug_origin_update
     # 非active下不执行
     return if !$debug_active
     if !$TEST and Input.press?(Input::F9)
@@ -238,9 +238,9 @@ class Scene_File
   # * Read Save Data
   #     file : file object for reading (opened)
   #--------------------------------------------------------------------------
-  alias origin_read_save_data read_save_data
+  alias event_debug_origin_read_save_data read_save_data
   def read_save_data(file)
-    origin_read_save_data(file)
+    event_debug_origin_read_save_data(file)
     return if !$debug_active
     if $game_system.version_id == $data_system.version_id
       $game_map.setup($game_map.map_id)

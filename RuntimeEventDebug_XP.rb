@@ -210,9 +210,9 @@ class Game_Map
   #--------------------------------------------------------------------------
   # * Setup，用于New Game
   #--------------------------------------------------------------------------
-  alias origin_setup setup
+  alias event_debug_origin_setup setup
   def setup(map_id)
-    origin_setup(map_id)
+    event_debug_origin_setup(map_id)
     # 非active下不执行
     return if !$debug_active
     self.before_start()
@@ -230,9 +230,9 @@ class Scene_Map
   #--------------------------------------------------------------------------
   # * Frame Update
   #--------------------------------------------------------------------------
-  alias origin_update update
+  alias event_debug_origin_update update
   def update()
-    origin_update
+    event_debug_origin_update
     # 非active下不执行
     return if !$debug_active
     if !$DEBUG and Input.press?(Input::F9)
@@ -251,9 +251,9 @@ class Scene_Load
   # * Read Save Data
   #     file : file object for reading (opened)
   #--------------------------------------------------------------------------
-  alias origin_read_save_data read_save_data
+  alias event_debug_origin_read_save_data read_save_data
   def read_save_data(file)
-    origin_read_save_data(file)
+    event_debug_origin_read_save_data(file)
     return if !$debug_active
     if $game_system.magic_number == $data_system.magic_number
       # Load map
@@ -265,18 +265,18 @@ class Scene_Load
   #--------------------------------------------------------------------------
   # * Decision Processing
   #--------------------------------------------------------------------------
-  alias origin_on_decision on_decision
+  alias event_debug_origin_on_decision on_decision
   def on_decision(filename)
     $debug_load_from_map = false
-    origin_on_decision(filename)
+    event_debug_origin_on_decision(filename)
   end
 
   #--------------------------------------------------------------------------
   # * Cancel Processing
   #--------------------------------------------------------------------------
-  alias origin_on_cancel on_cancel
+  alias event_debug_origin_on_cancel on_cancel
   def on_cancel
-    origin_on_cancel
+    event_debug_origin_on_cancel
     return if !$debug_active
     if $debug_load_from_map
         $scene = Scene_Map.new

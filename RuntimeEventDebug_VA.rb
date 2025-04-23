@@ -199,9 +199,9 @@ class Game_Map
   #--------------------------------------------------------------------------
   ##  Setup，用于New Game
   #--------------------------------------------------------------------------
-  alias origin_setup setup
+  alias event_debug_origin_setup setup
   def setup(map_id)
-    origin_setup(map_id)
+    event_debug_origin_setup(map_id)
     # 非active下不执行
     return if !$debug_active
     self.before_start()
@@ -216,9 +216,9 @@ class Scene_Map
   #--------------------------------------------------------------------------
   ##  Frame Update
   #--------------------------------------------------------------------------
-  alias origin_update update
+  alias event_debug_origin_update update
   def update()
-    origin_update
+    event_debug_origin_update
     # 非active下不执行
     return if !$debug_active
     if !$TEST && Input.press?(:F9)
@@ -235,7 +235,7 @@ class Scene_Load
   #--------------------------------------------------------------------------
   ##  Processing When Load Is Successful
   #--------------------------------------------------------------------------
-  alias origin_on_load_success on_load_success
+  alias event_debug_origin_on_load_success on_load_success
   def on_load_success
     if $debug_active
       # 此处需要进行再次检查，因为打开游戏存档再读档并不会判断为不同版本
@@ -245,6 +245,6 @@ class Scene_Load
         $game_player.make_encounter_count
       end
     end
-    origin_on_load_success
+    event_debug_origin_on_load_success
   end
 end
